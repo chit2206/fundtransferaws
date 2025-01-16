@@ -29,10 +29,10 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"course-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"fundtran-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo Writing image definitions file...
       # add your container name
-      - DOCKER_CONTAINER_NAME=techarch/boarepo2
+      - DOCKER_CONTAINER_NAME=fund-trans-container
       - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
@@ -41,4 +41,4 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-    - build/libs/accounts-ms.jar
+    - build/libs/*.jar
